@@ -1,0 +1,77 @@
+---
+title: "Applied Biostatistics Assigment 1"
+author: Léonard Berney, Mohammad Aquil
+output: 
+  pdf_document:
+    fig_caption: yes
+header-includes:
+- \usepackage{float}
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE,
+                      fig.pos = "H")
+
+library(xtable)
+options(xtable.comment = FALSE)
+data("LifeCycleSavings")
+```
+
+## Data
+
+The dataset we will be working on contains information on life-cycle savings for the 1960-1970 period in different countries. The data consists of 50 observations on 5 variables:
+
+* sr: personal savings
+* pop15: percentage of population under 15
+* pop75: percentage of population over 75
+* dpi: per-capita disposable income
+* ddpi: percentage growth rate of dpi
+
+
+```{r LifeCycleSavings, fig.cap="\\label{fig:pairs}Pairs of variables", out.extra=""}
+pairs(LifeCycleSavings)
+```
+
+## Linear Model
+
+The objective is to build a linear model that can predict the personal saving ratio of a country.
+We will start by fitting a model using every variables and then try to prune it as much as possible, without sacrificing to much accuracy.
+
+```{r lifeCycleSavings, results='asis'}
+lm1 <- lm(sr ~ ., LifeCycleSavings)
+print(xtable(summary(lm1), caption="summary of the full model", label="tab:summary"), type="latex")
+```
+
+
+```{r}
+aic1 <- AIC(lm1)
+aic2 <- AIC(lm(sr ~ pop15 + pop75 + ddpi, data=LifeCycleSavings))
+```
+
+Looking at the summary from Table \ref{tab:summary}, pop75 and dpi might not be significant for the model.
+For the full model, we have an AIC of `r I(aic1)` which improves to `r I(aic2)` when omitting the dpi variable.
+
+On Figure \ref{fig:pairs} we see that the correlation between pop15 and pop75 is rather high (`r I(cor(LifeCycleSavings[2], LifeCycleSavings[3]))`).
+Calculating the variance inflation factor, pop15 and pop75 both are above 5, which might indicate multicolinearity. 
+
+```{r}
+aic3 <- AIC(lm(sr ~ pop75 + ddpi, data = LifeCycleSavings))
+aic4 <- AIC(lm(sr ~ pop15 + ddpi, data = LifeCycleSavings))
+```
+
+We will now experiment what happens when these variables are present or not.
+By removing pop15 from the model, we obtain an AIC of `r I(aic3)` and by removing pop75 we get `r I(aic4)`.
+These two results are worse than what we obtained previously but the difference when removing pop75 is small enough that we should still consider removing the variable in the final model.
+
+After all the pruning, we obtain the following final model:
+
+```{r}
+coefficients(lm(sr ~ pop15 + ddpi, data = LifeCycleSavings))
+```
+
+Looking at the diagnostic plots on Figure \ref{fig:diags}, the model seems to preserve homoscedasticity and the residuals are normally distributed.
+
+```{r, fig.cap="\\label{fig:diags}Diagnostic plots for the final model", fig.height=7}
+layout(matrix(1:4,ncol=2))
+plot(lm(sr ~ pop15 + ddpi, data = LifeCycleSavings))
+```
