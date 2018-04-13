@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.4)  4 APR 2018 18:46
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6630 64-bit) (preloaded format=pdflatex 2018.4.4)  13 APR 2018 17:49
 entering extended mode
 **./report.tex
 (report.tex
@@ -1005,45 +1005,68 @@ LaTeX Font Info:    Try loading font information for TS1+lmr on input line 99.
 ("C:\Users\Leonard\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ts1lmr.fd"
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<report_files/figure-latex/LifeCycleSavings-1.pdf, id=11, 469.755pt x 325.215pt
->
-File: report_files/figure-latex/LifeCycleSavings-1.pdf Graphic file (type pdf)
-<use report_files/figure-latex/LifeCycleSavings-1.pdf>
-Package pdftex.def Info: report_files/figure-latex/LifeCycleSavings-1.pdf  used
- on input line 111.
+<report_files/figure-latex/unnamed-chunk-1-1.pdf, id=15, 469.755pt x 325.215pt>
+
+File: report_files/figure-latex/unnamed-chunk-1-1.pdf Graphic file (type pdf)
+<use report_files/figure-latex/unnamed-chunk-1-1.pdf>
+Package pdftex.def Info: report_files/figure-latex/unnamed-chunk-1-1.pdf  used 
+on input line 111.
 (pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 111--111
 [][]
  []
 
-LaTeX Font Info:    Try loading font information for OT1+lmr on input line 123.
+<report_files/figure-latex/unnamed-chunk-2-1.pdf, id=16, 469.755pt x 505.89pt>
+File: report_files/figure-latex/unnamed-chunk-2-1.pdf Graphic file (type pdf)
+<use report_files/figure-latex/unnamed-chunk-2-1.pdf>
+Package pdftex.def Info: report_files/figure-latex/unnamed-chunk-2-1.pdf  used 
+on input line 123.
+(pdftex.def)             Requested size: 469.75386pt x 505.88875pt.
+[1
+
+{C:/Users/Leonard/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}pdfTeX warn
+ing (ext4): destination with the same identifier (name{figure.1}) has been alre
+ady used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.131 
+       <./report_files/figure-latex/unnamed-chunk-1-1.pdf>] [2pdfTeX warning (e
+xt4): destination with the same identifier (name{figure.2}) has been already us
+ed, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.131 
+       <./report_files/figure-latex/unnamed-chunk-2-1.pdf>]
+LaTeX Font Info:    Try loading font information for OT1+lmr on input line 134.
 
 ("C:\Users\Leonard\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\ot1lmr.fd"
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OML+lmm on input line 123.
+LaTeX Font Info:    Try loading font information for OML+lmm on input line 134.
 
 ("C:\Users\Leonard\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omllmm.fd"
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 123
+LaTeX Font Info:    Try loading font information for OMS+lmsy on input line 134
 .
 ("C:\Users\Leonard\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omslmsy.fd"
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Try loading font information for OMX+lmex on input line 123
+LaTeX Font Info:    Try loading font information for OMX+lmex on input line 134
 .
 ("C:\Users\Leonard\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\omxlmex.fd"
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10> on input line 123.
+(Font)              <10> on input line 134.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <7> on input line 123.
+(Font)              <7> on input line 134.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <5> on input line 123.
-LaTeX Font Info:    Try loading font information for U+msa on input line 123.
+(Font)              <5> on input line 134.
+LaTeX Font Info:    Try loading font information for U+msa on input line 134.
 ("C:\Users\Leonard\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsa.fd
 "
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
@@ -1052,7 +1075,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 .cfg"
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 123.
+LaTeX Font Info:    Try loading font information for U+msb on input line 134.
 ("C:\Users\Leonard\AppData\Local\Programs\MiKTeX 2.9\tex\latex\amsfonts\umsb.fd
 "
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
@@ -1060,57 +1083,67 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ("C:\Users\Leonard\AppData\Local\Programs\MiKTeX 2.9\tex\latex\microtype\mt-msb
 .cfg"
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
-) [1
-
-{C:/Users/Leonard/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}pdfTeX warn
-ing (ext4): destination with the same identifier (name{figure.1}) has been alre
-ady used, duplicate ignored
-
-\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
-                                                  \fi \fi 
-l.142 
-       <./report_files/figure-latex/LifeCycleSavings-1.pdf>]
-LaTeX Font Info:    Try loading font information for T1+lmtt on input line 157.
+)
+LaTeX Font Info:    Try loading font information for T1+lmtt on input line 198.
 
 ("C:\Users\Leonard\AppData\Local\Programs\MiKTeX 2.9\tex\latex\lm\t1lmtt.fd"
 File: t1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<report_files/figure-latex/unnamed-chunk-4-1.pdf, id=31, 469.755pt x 505.89pt>
-File: report_files/figure-latex/unnamed-chunk-4-1.pdf Graphic file (type pdf)
-<use report_files/figure-latex/unnamed-chunk-4-1.pdf>
-Package pdftex.def Info: report_files/figure-latex/unnamed-chunk-4-1.pdf  used 
-on input line 168.
-(pdftex.def)             Requested size: 469.75386pt x 505.88875pt.
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 173.
-[2pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
+<report_files/figure-latex/unnamed-chunk-5-1.pdf, id=50, 469.755pt x 325.215pt>
+
+File: report_files/figure-latex/unnamed-chunk-5-1.pdf Graphic file (type pdf)
+<use report_files/figure-latex/unnamed-chunk-5-1.pdf>
+Package pdftex.def Info: report_files/figure-latex/unnamed-chunk-5-1.pdf  used 
+on input line 213.
+(pdftex.def)             Requested size: 469.75386pt x 325.2142pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--213
+[][]
+ []
+
+[3pdfTeX warning (ext4): destination with the same identifier (name{table.1}) h
 as been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.173 \end{document}
-                    ] [3pdfTeX warning (ext4): destination with the same identi
-fier (name{figure.2}) has been already used, duplicate ignored
+l.215 
+      pdfTeX warning (ext4): destination with the same identifier (name{table.2
+}) has been already used, duplicate ignored
 
 \AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
                                                   \fi \fi 
-l.173 \end{document}
-                     <./report_files/figure-latex/unnamed-chunk-4-1.pdf>]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 173.
+l.215 
+      pdfTeX warning (ext4): destination with the same identifier (name{table.3
+}) has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.215 
+      ]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 217.
+[4pdfTeX warning (ext4): destination with the same identifier (name{figure.3}) 
+has been already used, duplicate ignored
+
+\AtBegShi@Output ...ipout \box \AtBeginShipoutBox 
+                                                  \fi \fi 
+l.217 \end{document}
+                     <./report_files/figure-latex/unnamed-chunk-5-1.pdf>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 217.
 (report.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 173.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 173.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 217.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 217.
 Package rerunfilecheck Info: File `report.out' has not changed.
-(rerunfilecheck)             Checksum: BFB754EA6E9544F6E471C7554897CF57;173.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 173.
+(rerunfilecheck)             Checksum: FB0D5906D911AF7E90972455EA985420;268.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 217.
  ) 
 Here is how much of TeX's memory you used:
- 12366 strings out of 493305
- 182802 string characters out of 3128933
- 277041 words of memory out of 3000000
- 15711 multiletter control sequences out of 15000+200000
- 34876 words of font info for 52 fonts, out of 3000000 for 9000
+ 12379 strings out of 493305
+ 183143 string characters out of 3128933
+ 280386 words of memory out of 3000000
+ 15721 multiletter control sequences out of 15000+200000
+ 34793 words of font info for 51 fonts, out of 3000000 for 9000
  1141 hyphenation exceptions out of 8191
- 32i,8n,38p,233b,344s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 32i,8n,38p,233b,342s stack positions out of 5000i,500n,10000p,200000b,50000s
 {C:/Users/Leonard/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-ec.
 enc}{C:/Users/Leonard/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/lm/lm-m
 athsy.enc}{C:/Users/Leonard/AppData/Local/Programs/MiKTeX 2.9/fonts/enc/dvips/l
@@ -1123,9 +1156,9 @@ KTeX 2.9/fonts/type1/public/lm/lmr17.pfb><C:/Users/Leonard/AppData/Local/Progra
 ms/MiKTeX 2.9/fonts/type1/public/lm/lmri12.pfb><C:/Users/Leonard/AppData/Local/
 Programs/MiKTeX 2.9/fonts/type1/public/lm/lmsy10.pfb><C:/Users/Leonard/AppData/
 Local/Programs/MiKTeX 2.9/fonts/type1/public/lm/lmtt10.pfb>
-Output written on report.pdf (3 pages, 215269 bytes).
+Output written on report.pdf (4 pages, 173047 bytes).
 PDF statistics:
- 82 PDF objects out of 1000 (max. 8388607)
- 9 named destinations out of 1000 (max. 500000)
- 8219 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 104 PDF objects out of 1000 (max. 8388607)
+ 14 named destinations out of 1000 (max. 500000)
+ 8232 words of extra memory for PDF output out of 10000 (max. 10000000)
 

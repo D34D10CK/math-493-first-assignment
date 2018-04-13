@@ -13,6 +13,8 @@ knitr::opts_chunk$set(echo = FALSE,
                       fig.pos = "H")
 
 library(xtable)
+library(car)
+library(lmtest)
 options(xtable.comment = FALSE)
 data("LifeCycleSavings")
 ```
@@ -28,50 +30,62 @@ The dataset we will be working on contains information on life-cycle savings for
 * ddpi: percentage growth rate of dpi
 
 
-```{r LifeCycleSavings, fig.cap="\\label{fig:pairs}Pairs of variables", out.extra=""}
-pairs(LifeCycleSavings)
+```{r, results='hide', fig.cap="\\label{fig:boxplots}Boxplots of the variables", out.extra=""}
+par(mfrow=c(2,3))
+
+Boxplot(LifeCycleSavings$sr, ylab="", main="sr")
+Boxplot(LifeCycleSavings$pop15, ylab="", main="pop15")
+Boxplot(LifeCycleSavings$pop75, ylab="", main="pop75")
+Boxplot(LifeCycleSavings$dpi, ylab="", main="dpi")
+Boxplot(LifeCycleSavings$ddpi, id=list(labels=row.names(LifeCycleSavings)), main="ddpi", ylab="")
 ```
 
 ## Linear Model
 
 The objective is to build a linear model that can predict the personal saving ratio of a country.
-We will start by fitting a model using every variables and then try to prune it as much as possible, without sacrificing to much accuracy.
+We will start by fitting a model using every variables and then try to prune it as much as possible, without sacrificing too much accuracy.
+
+```{r, fig.cap="\\label{fig:diags1}Diagnostic plots for the initial model", fig.height=7}
+layout(matrix(1:4,ncol=2))
+
+lm1 <- lm(sr ~ ., LifeCycleSavings)
+plot(lm1)
+```
+
+From Figure \ref{fig:diags1} we observe that the residuals are close enough to a normal distribution and are homoscedastic, so no transformation of the data is required before being able to exploit a linear model.
 
 ```{r lifeCycleSavings, results='asis'}
-lm1 <- lm(sr ~ ., LifeCycleSavings)
-print(xtable(summary(lm1), caption="summary of the full model", label="tab:summary"), type="latex")
+print(xtable(summary(lm1), caption="Summary of the full model", label="tab:summary"), type="latex")
 ```
 
+Looking at the summary from Table \ref{tab:summary}, we can see that dpi is most probably useless and when using a confidence level of 95% pop75 is not statically significant either.
+
+We now build a second linear model omitting the dpi variable. By comparing it with the full model using a log likelyhood ratio test, Table \ref{tab:likelyhood1} shows that we can indeed remove dpi from the model.
+
+```{r LifeCycleSavings, results='asis'}
+lm2 <- lm(sr ~ pop15 + pop75 + ddpi, data=LifeCycleSavings)
+print(xtable(lrtest(lm1, lm2), caption="Log-likelyhood ratio test of the full model (1) and removing dpi (2)", label="tab:likelyhood1"), type="latex")
+```
+
+We then remove the variable pop75 from the second model and do another likelyhood ratio test.
+
+```{r, results='asis'}
+lm3 <- lm(sr ~ pop15 + ddpi, data=LifeCycleSavings)
+print(xtable(lrtest(lm2, lm3), caption="Log-likelyhood ratio test of the second model (1) and removing pop75 (2)", label="tab:likelyhood2"), type="latex")
+```
+
+This time the results are less obvious but at a 95% confidence level we still reject the hypothesis that the second model is better than the third.
+
+## Conclusion
+
+We were able to simplify the full model containing 4 variables by removing the 2 least significant ones, leading to the final model:
 
 ```{r}
-aic1 <- AIC(lm1)
-aic2 <- AIC(lm(sr ~ pop15 + pop75 + ddpi, data=LifeCycleSavings))
+coefficients(lm3)
 ```
 
-Looking at the summary from Table \ref{tab:summary}, pop75 and dpi might not be significant for the model.
-For the full model, we have an AIC of `r I(aic1)` which improves to `r I(aic2)` when omitting the dpi variable.
+One thing to note is that the boxplot of ddpi from Figure \ref{fig:boxplots} showed Libya as an outsider but on Figure \ref{fig:diags1} the residuals vs leverage plot indicated that Libiya was not too influencial on the full model. However, on the same graph for the final model on Figure \ref{fig:cook} Libya has a greater leverage compared to the other countries. We also see that other points have had their leverage changed but since Libya was already an outsider, we don't care too much about the changes in the final model. 
 
-On Figure \ref{fig:pairs} we see that the correlation between pop15 and pop75 is rather high (`r I(cor(LifeCycleSavings[2], LifeCycleSavings[3]))`).
-Calculating the variance inflation factor, pop15 and pop75 both are above 5, which might indicate multicolinearity. 
-
-```{r}
-aic3 <- AIC(lm(sr ~ pop75 + ddpi, data = LifeCycleSavings))
-aic4 <- AIC(lm(sr ~ pop15 + ddpi, data = LifeCycleSavings))
-```
-
-We will now experiment what happens when these variables are present or not.
-By removing pop15 from the model, we obtain an AIC of `r I(aic3)` and by removing pop75 we get `r I(aic4)`.
-These two results are worse than what we obtained previously but the difference when removing pop75 is small enough that we should still consider removing the variable in the final model.
-
-After all the pruning, we obtain the following final model:
-
-```{r}
-coefficients(lm(sr ~ pop15 + ddpi, data = LifeCycleSavings))
-```
-
-Looking at the diagnostic plots on Figure \ref{fig:diags}, the model seems to preserve homoscedasticity and the residuals are normally distributed.
-
-```{r, fig.cap="\\label{fig:diags}Diagnostic plots for the final model", fig.height=7}
-layout(matrix(1:4,ncol=2))
-plot(lm(sr ~ pop15 + ddpi, data = LifeCycleSavings))
+```{r, fig.cap="\\label{fig:cook}Cook's distance for the final model", out.extra=""}
+plot(lm3, which = 5)
 ```
